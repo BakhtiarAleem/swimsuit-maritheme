@@ -23,21 +23,36 @@ get_header( 'shop' );
  * Hook: woocommerce_before_main_content.
  *
  * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
- * @hooked woocommerce_breadcrumb - 20
+ * @hooked v - 20
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
 
 
 do_action( 'woocommerce_before_main_content' );
 
+
 ?>
 
 <header class="woocommerce-products-header">
-	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-		<div class="woocommerce-banner" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/shop-banner.jpg')">
+	<?php 
+	// Get Category Image
+		global $wp_query;
+		$cat = $wp_query->get_queried_object();
+		$thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
+		$image_url    = wp_get_attachment_url( $thumbnail_id );
+ 	?>
+	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>	
+		<?php if($image_url) { ?>
+		<div class="woocommerce-banner" style="background-image: url('<?php echo $image_url; ?>')">
 		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
 		<?php woocommerce_breadcrumb(); ?>
 		</div>
+		<?php } else { ?>
+			<div class="woocommerce-banner" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/shop-banner.jpg')">
+				<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
+				<?php woocommerce_breadcrumb(); ?>
+			</div>
+		<?php } ?>
 	<?php endif; ?>
 
 	<?php

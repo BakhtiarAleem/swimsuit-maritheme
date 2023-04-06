@@ -237,6 +237,10 @@ function woo_cart_but() {
  
 }
 
+// Woocomerce Breadcrum
+
+
+
 // YITH Wishlist code
 
 if ( function_exists( 'YITH_WCWL' ) ) {
@@ -259,4 +263,5 @@ if ( function_exists( 'YITH_WCWL' ) ) {
 		}
 	}
 	add_action( 'init', 'yith_wcwl_add_counter_shortcode' );
+    
 }
