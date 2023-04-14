@@ -24,7 +24,7 @@
 		<div class="row align-items-end">
 			<div class="col-md-6">
 			<div id="copyright" class="copyright">
-			<?php echo esc_html( get_bloginfo( 'name' ) ); ?> &copy; 2022 ALL RIGHTS RESERVED
+			<?php echo esc_html( get_bloginfo( 'name' ) ); ?> &copy; <?php echo date("Y"); ?> ALL RIGHTS RESERVED
 				
 			</div>
 			</div>

@@ -18,13 +18,17 @@ $user_id = get_current_user_id();
 $admin_url = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http' ) . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $param = ( count( $_GET ) ) ? '&' : '?';
 if ( !get_user_meta( $user_id, 'mary_theme_notice_dismissed_7' ) && current_user_can( 'manage_options' ) )
-echo '<div class="notice notice-info"><p><a href="' . esc_url( $admin_url ), esc_html( $param ) . 'dismiss" class="alignright" style="text-decoration:none"><big>' . esc_html__( 'Ⓧ', 'mary_theme' ) . '</big></a>' . wp_kses_post( __( '<big><strong>📝 Thank you for using mary_theme!</strong></big>', 'mary_theme' ) ) . '<br /><br /><a href="https://wordpress.org/support/theme/mary_theme/reviews/#new-post" class="button-primary" target="_blank">' . esc_html__( 'Review', 'mary_theme' ) . '</a> <a href="https://github.com/tidythemes/mary_theme/issues" class="button-primary" target="_blank">' . esc_html__( 'Feature Requests & Support', 'mary_theme' ) . '</a> <a href="https://calmestghost.com/donate" class="button-primary" target="_blank">' . esc_html__( 'Donate', 'mary_theme' ) . '</a></p></div>';
+echo '<div class="notice notice-info"><p><a href="' . esc_url( $admin_url ), esc_html( $param ) . 'dismiss" class="alignright" style="text-decoration:none"><big>' . esc_html__( 'Ⓧ', 'mary_theme' ) . '</big></a>' . wp_kses_post( __( '<big><strong>📝 Thank you for using Swimsuit By Mary Themes!</strong></big>', 'mary_theme' ) ) . '<br /><br /> <a href="https://github.com/BakhtiarAleem/swimsuit-maritheme/issues" class="button-primary" target="_blank">' . esc_html__( 'Feature Requests & Support', 'mary_theme' ) . '</a> </p></div>';
 }
 add_action( 'admin_init', 'mary_theme_notice_dismissed' );
 function mary_theme_notice_dismissed() {
 $user_id = get_current_user_id();
 if ( isset( $_GET['dismiss'] ) )
 add_user_meta( $user_id, 'mary_theme_notice_dismissed_7', 'true', true );
+}
+add_action( 'wp_enqueue_scripts', 'load_dashicons_front_end' );
+function load_dashicons_front_end() {
+  wp_enqueue_style( 'dashicons' );
 }
 add_action( 'wp_enqueue_scripts', 'mary_theme_enqueue' );
 function mary_theme_enqueue() {

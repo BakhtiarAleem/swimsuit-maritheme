@@ -42,5 +42,46 @@
             
     </div>
 </header>
+<header class="mobile-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="logo-container">
+                    <a href="<?php echo get_site_url(); ?>">
+                        <?php dynamic_sidebar( 'logo-area' ); ?>
+                    </a>
+                </div>   
+            </div>
+            <div class="col-6">
+                <div class="cart-action-link">
+                    <ul>                     
+                        <!-- <li class="cart-action-item mt-1"><?php // echo do_shortcode( '[yith_wcwl_items_count]' ); ?></li>
+                        <li class="cart-action-item"><a href="/my-account"><i class="bi bi-person-circle"></i></a></li> -->
+                        <?php echo do_shortcode("[woo_cart_but]"); ?>
+                        <li class="cart-action-item search-icon"><i class="dashicons-search dashicons"></i></li>
+                        <li class="menu-icon cart-action-item"><i class="dashicons-menu-alt3 dashicons"></i></li>
+                    </ul>
+                </div>                 
+            </div>
+            <div class="menu-bottom">
+                <div class="col-12 navigation-column">                    
+                    <nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
+                        <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' => 'nav', 'add_li_class' => 'nav-item', 'link_before' => '<span class="nav-link" itemprop="name">', 'link_after' => '</span>' ) ); ?>
+                    </nav>
+                </div>
+                <div class="col-12 search-column">
+                    <div class="woo-search-bar">
+                        <?php aws_get_search_form( true ); ?>
+                    </div>
+                </div>
+                
+            </div>            
+        </div>            
+    </div>
+</header>
 <div id="container">
+<div class="page-loader">
+	<div class="spinner"></div>
+	<div class="sitename"><?php echo get_bloginfo( 'name' ); ?></div>
+</div>
 <main id="content" role="main">
