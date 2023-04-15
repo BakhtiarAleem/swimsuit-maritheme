@@ -221,6 +221,9 @@ p.uagb-desc-text {
 .cart-action-link a {
     color: #fff;
 }
+.cart-action-link a:hover {
+    text-decoration: none;
+}
 .aws-search-result {
     background: #d1be8a;
 }
@@ -411,6 +414,21 @@ ul.vc_tta-tabs-list {
 }
 .woocommerce ul.products li.product a img{
     margin-bottom: 10px;
+}
+.woocommerce ul.products li.product .star-rating {
+    display: none;
+}
+.woocommerce ul.products li.product a {
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+}
+.woocommerce ul.products li.product a img {
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+}
+.woocommerce ul.products li.product a:hover img, .woocommerce ul.products li.product a:focus img {
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
 }
 li.product.type-product h2.woocommerce-loop-product__title {
     font-size: 14px !important;
@@ -645,6 +663,7 @@ nav.woocommerce-breadcrumb {
 .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button{
     color: #ffffff;
     background-color: var(--primary);
+    outline: 0;
 }
 div.wpforms-container-full .wpforms-confirmation-container-full {
     background-color: var(--primary);
@@ -829,7 +848,7 @@ p.comment-form-email {
     margin-left: 0% !important;
 }
 .woocommerce {
-    margin-top: 40px;
+    margin-top: 0px;
 }
 input[type=checkbox]:checked, input[type=radio]:checked {
     border: 1px solid var(--secondary);
@@ -837,6 +856,10 @@ input[type=checkbox]:checked, input[type=radio]:checked {
     width: 13px;
     height: 13px;
     border-radius: 2px;
+}
+body button.button.wp-element-button[disabled] {
+    color: #fff !important;
+    background-color: var(--primary) !important;
 }
 input[type=checkbox]:checked, input[type=radio]:checked {
     background-color: var(--primary);
@@ -978,5 +1001,21 @@ input[type=checkbox]:checked, input[type=radio]:checked {
     }
     .footer-widget-five .wp-block-social-links {
         justify-content: center;
+    }
+    .blog-banner{
+        text-align: center;
+    }
+    p.comment-form-author, p.comment-form-email, p.comment-form-url {
+        display: inline-block;
+        width: 100%;
+    }
+    p.comment-form-email {
+        padding: 0px;
+    }
+    .menu-main-menu-container li.menu-item.current-menu-item {
+        background-color: var(--primary);
+    }
+    .menu-main-menu-container li.menu-item.current-menu-item a{
+        color: #fff;
     }
 }
